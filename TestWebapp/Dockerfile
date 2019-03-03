@@ -1,4 +1,4 @@
-FROM microsoft/dotnet-framework:4.6.1-sdk AS build
+FROM microsoft/dotnet-framework:4.6.2-sdk AS build
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
@@ -12,6 +12,6 @@ WORKDIR /app/TestWebapp
 RUN msbuild /p:Configuration=Release
 
 
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.6.1 AS runtime
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.6.2 AS runtime
 WORKDIR /inetpub/wwwroot
 COPY --from=build /app/TestWebapp/. ./
