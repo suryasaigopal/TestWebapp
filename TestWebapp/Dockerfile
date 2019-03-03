@@ -4,7 +4,7 @@ WORKDIR /app
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY TestWebapp/*.csproj ./TestWebapp/
-TestWebapp RUN nuget restore
+RUN nuget restore
 
 # copy everything else and build app
 COPY TestWebapp/. ./TestWebapp/
